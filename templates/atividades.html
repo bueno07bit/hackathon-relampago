@@ -7,6 +7,7 @@
 <body>
     <h1>Atividades dos Estudantes</h1>
     <a href="{{ url_for('index') }}">Voltar</a>
+    <a href="{{ url_for('adicionar_atividade_todos') }}">Adicionar Atividade para Todos</a>
     <ul>
         {% for id, student in students.items() %}
             <li>{{ student.name }}: {{ student.activities | join(', ') }}</li>
