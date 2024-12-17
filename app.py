@@ -4,10 +4,18 @@ app = Flask(__name__)
 
 # Simulando banco de dados
 students = {
-    "1": {"name": "João", "activities": ["Matemática - Exercício 1"], "grades": {"Matemática": 8.5}},
+    "1": {"name": "João", "activities": ["Matemática - Redação"], "grades": {"Matemática": 8.5}},
     "2": {"name": "Maria", "activities": ["História - Redação"], "grades": {"História": 9.0}},
+    "3": {"name": "Arthur", "activities": ["Ciências - Redação"], "grades": {"Ciências": 8.5}},
+    "4": {"name": "Daniel", "activities": ["Geografia- Redação"], "grades": {"Geografia": 7.0}},
+    "5": {"name": "Gabriel", "activities": ["Inglês- Redação"], "grades": {"Inglês": 7.5}},
+    "6": {"name": "Juliane", "activities": ["Língua Portuguesa - Redação"], "grades": {"Língua Portuguesa": 8.5}},
+    "7": {"name": "Bruno", "activities": ["Educação Física - Redação"], "grades": {"Educação Física": 10.0}},
+    "8": {"name": "Vitor", "activities": ["Artes - Redação"], "grades": {"Artes": 9.0}},
+    "9": {"name": "Vinicius", "activities": ["Ensino Religioso - Redação"], "grades": {"Ensino Religioso": 9.0}},
+    
 }
-courses = ["Matemática", "História", "Ciência"]
+courses = ["Matemática", "História", "Ciências", "Geografia", "Inglês","Língua Portuguesa","Educação Física","Artes", "Ensino Religioso"]
 
 @app.route('/')
 def index():
