@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+</head>
+<body>
+    <h1>Notas dos Estudantes</h1>
+    <a href="{{ url_for('index') }}">Voltar</a>
+    <ul>
+        {% for id, student in students.items() %}
+            <li>{{ student.name }}:
+                <ul>
+                    {% for subject, grade in student.grades.items() %}
+                        <li>{{ subject }}: {{ grade }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Estudante</title>
+</head>
+<body>
+    <h1>Adicionar Novo Estudante</h1>
+    <form method="POST">
+        <label for="name">Nome do Estudante:</label>
+        <input type="text" name="name" required>
+        <button type="submit">Adicionar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Atividade</title>
+</head>
+<body>
+    <h1>Adicionar Atividade</h1>
+    <form method="POST">
+        <label for="activity">Atividade:</label>
+        <input type="text" name="activity" required>
+        <button type="submit">Adicionar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

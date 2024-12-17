@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+</head>
+<body>
+    <h1>Cursos Disponíveis</h1>
+    <a href="{{ url_for('index') }}">Voltar</a>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
