@@ -47,6 +47,8 @@ def adicionar_estudante():
     return render_template('adicionar_estudante.html')
 
 @app.route('/adicionar_nota/<student_id>', methods=['GET', 'POST'])
+
+
 def adicionar_nota(student_id):
     if request.method == 'POST':
         subject = request.form['subject']
