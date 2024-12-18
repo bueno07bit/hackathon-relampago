@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Tarefa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+
+<body>
+    <div class="img-1">
+        <form action="{{ url_for('index') }}" method="POST">
+                <div class="container">
+                    <h1>Adicionar Tarefa</h1>
+                    <div class="form-container">
+                        <label for="title">Título:</label>
+                        <input type="text" name="title" id="title" required><br>
+
+                        <label for="description">Descrição:</label>
+                        <textarea name="description" id="description" required></textarea><br>
+
+                        <button type="submit"><strong>Adicionar Tarefa</strong></button>
+
+                    </div>
+
+                    <p><a href="{{ url_for('add_task') }}">Ver tarefas</a></p>
+                </div>
+        </div>
+        <div class="container-day">
+            <label for="day">Dia:</label>
+            <select name="day" id="day">
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select><br>
+        </div>
+    </form>
+</body>
+
+</html>

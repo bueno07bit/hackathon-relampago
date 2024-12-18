@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9; /* Fallback caso as imagens não carreguem */
+    background-image: url('./raichu-.png'), url('./images.png'); /* Adiciona as duas imagens */
+    background-position: left center, right center; /* Imagem esquerda no centro da esquerda, imagem direita no centro da direita */
+    background-repeat: no-repeat, no-repeat; /* Evita repetição das imagens */
+    background-size: contain, contain; /* Ajusta o tamanho das imagens */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo na página */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(raichu-.png) no-repeat left,
+                    url(images.png) no-repeat right;
+    background-size: 150px;
+}
+
+.container {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-left: 160px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    color: red;
+    font-size: 14px;
+}

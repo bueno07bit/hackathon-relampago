@@ -1,0 +1,139 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    background-image: url('./images.png');
+    background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    align-items: center;
+}
+.img-container{
+    background-image: url(./raichu.jpg);
+    background-size: cover;
+    background-position: left;
+}
+/* Container for the main content */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para melhorar a legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid yellow; /* Borda de 2px, roxa */
+}
+.container-day{
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para melhorar a legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+    border: 2px solid yellow; /* Borda de 2px, roxa */
+    display: flex;
+    justify-content: center;
+    margin-left: 60px;
+}
+.container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+.form-container button {
+    background-color: yellow;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition: 2s;
+}
+
+/* Tasks Container */
+.tasks-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.tasks-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tasks-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tasks-container li {
+    margin-bottom: 15px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-container span {
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+.tasks-container button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.tasks-container button:hover {
+    background-color: #e53935;
+}

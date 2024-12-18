@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleLog.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div id="img-container">
+   
+        <div class="container">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <label for="username">Usuário:</label>
+                <input type="text" name="username" id="username" required><br>
+
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required><br>
+
+                <button type="submit">Entrar</button>
+            </form>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <div id="img-container">
+        <div class="container">
+            <h1>Tarefas Adicionadas</h1>
+            <div class="task-container">
+                <ul>
+                    {% for task in tasks %}
+                        <li class="{% if task.done %}completed{% else %}pending{% endif %}">
+                            <strong>{{ task.title }}</strong>: {{ task.description }} <br>
+                            <em>Dia: {{ task.day }}</em> <!-- Adiciona o dia da tarefa -->
+                            {% if not task.done %}
+                                <a href="{{ url_for('complete_task', task_id=task.id) }}">Concluir</a>
+                            {% else %}
+                                <span>[Concluída]</span>
+                            {% endif %}
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}">Excluir</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <form action="{{ url_for('index') }}" method="GET">
+                    <button class="adicionar-tarefa" type="submit"><strong>Adicionar nova tarefa</strong></button>
+                </form>
+                
+                </div>
+        </div>
+    </div>
+</body>
+</html>
