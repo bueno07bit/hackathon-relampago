@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .calendar-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .month {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+
+        .month-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th,
+        table td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        table td {
+            width: 30px;
+            height: 30px;
+        }
+
+        .day {
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 2px;
+        }
+
+        .empty {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendário de 2024</h1>
+    <div class="calendar-container">
+        {% for mes in calendario %}
+            <div class="month">
+                <div class="month-name">{{ mes.mes }}</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dom</th>
+                            <th>Seg</th>
+                            <th>Ter</th>
+                            <th>Qua</th>
+                            <th>Qui</th>
+                            <th>Sex</th>
+                            <th>Sáb</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for semana in mes.dias %}
+                            <tr>
+                                {% for dia in semana %}
+                                    <td class="{% if dia == 0 %}empty{% else %}day{% endif %}">
+                                        {% if dia != 0 %}{{ dia }}{% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
