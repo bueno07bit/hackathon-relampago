@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Atividades</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='atividades.css') }}">
+    </head>
+<body>
+    <h1>atividades</h1>
+    <a href="{{ url_for('index') }}">Voltar</a>
+    <ul>
+        {% for id, student in students.items() %}
+            <li>{{ student.name }} - Atividades: {{ student.activities | join(', ') }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

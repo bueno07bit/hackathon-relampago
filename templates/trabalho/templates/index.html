@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página Inicial</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stile.css') }}">
+    </body>  
+    </html>  
+
+
+    </head>
+<body>
+    <h1>Bem-vindo ao Sistema Escolar</h1>
+    <ul>
+        <li><a href="{{ url_for('atividades') }}">Atividades</a></li>
+        <li><a href="{{ url_for('notas') }}">Notas</a></li>
+        <li><a href="{{ url_for('materias_page') }}">materias</a></li>
+        <li><a href="{{ url_for('adicionar_estudante') }}">Adicionar Estudante</a></li>
+        <li><a href="{{ url_for('chamada') }}">Chamada</a></li>
+        <li><a href="{{ url_for('calendario') }}">calendario</a></li>
+    </ul>
+    <h2>Estudantes</h2>
+    <ul>
+        {% for id, student in students.items() %}
+            <li>{{ student.name }} - 
+                <a href="{{ url_for('adicionar_nota', student_id=id) }}">Adicionar Nota</a> |
+                <a href="{{ url_for('adicionar_atividade', student_id=id) }}">Adicionar Atividade</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

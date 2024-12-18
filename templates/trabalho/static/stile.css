@@ -1,0 +1,109 @@
+/* Resetando margens e padding padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fundo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #9293ce;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+    background-image: url('fundoescola.jpeg');  
+}
+
+/* Cabeçalho */
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 2.1rem;
+}
+
+/* Subtítulo */
+h2 {
+    margin: 20px 0;
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+/* Lista principal */
+ul {
+    list-style-type: none;
+}
+
+/* Estilizando a navegação */
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+ul li a:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+/* Estilizando a lista de estudantes */
+ul li {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: #adadad91;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Links dentro da lista de estudantes */
+ul li a {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+ul li a:hover {
+    color: #000000;
+}
+
+/* Definindo uma barra lateral para os links */
+ul {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Estilizando o link ativo */
+ul li a.active {
+    background-color: #16a085;
+    color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    ul li {
+        font-size: 1rem;
+    }
+
+    ul li a {
+        font-size: 1rem;
+    }
+}
+
