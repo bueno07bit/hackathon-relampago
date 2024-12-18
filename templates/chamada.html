@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamada de Presença</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        .presente {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .ausente {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .adicionar-aluno {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .adicionar-aluno input {
+            padding: 6px 12px;
+            margin-right: 10px;
+        }
+
+        .adicionar-aluno button {
+            padding: 6px 12px;
+            background-color: #2196F3;
+            color: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chamada de Presença</h1>
+
+        <form method="POST" action="/adicionar_aluno" class="adicionar-aluno">
+            <input type="text" name="novo_aluno" placeholder="Nome do novo aluno" required>
+            <button type="submit">Adicionar Aluno</button>
+        </form>
+
+        <h2>Lista de Alunos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Presença</th>
+                    <th>Falta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td>{{ aluno }}</td>
+                        <td>
+                            {% if presenca[aluno] %}
+                                <button class="presente" disabled>Presente</button>
+                            {% else %}
+                                <form method="POST" action="/marcar_presenca/{{ aluno }}">
+                                    <button class="presente" type="submit">Presente</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if not presenca[aluno] %}
+                                <button class="ausente" disabled>Ausente</button>
+                            {% else %}
+                                <form method="POST" action="/marcar_falta/{{ aluno }}">
+                                    <button class="ausente" type="submit">Ausente</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
