@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+import calendar
 app = Flask(__name__)
 
 # Simulando banco de dados
@@ -15,15 +15,11 @@ students = {
     "9": {"name": "Vinicius", "activities": ["Ensino Religioso - Redação"], "grades": {"Ensino Religioso": 9.0}},
     
 }
-courses = ["Matemática", "História", "Ciências", "Geografia", "Inglês","Língua Portuguesa","Educação Física","Artes", "Ensino Religioso"]
+materias = ["Matemática", "História", "Ciências", "Geografia", "Inglês","Língua Portuguesa","Educação Física","Artes", "Ensino Religioso"]
 
 @app.route('/')
 def index():
     return render_template('index.html', students=students)
-
-@app.route('/agenda')
-def agenda():
-    return render_template('agenda.html', students=students)
 
 @app.route('/atividades')
 def atividades():
@@ -33,9 +29,9 @@ def atividades():
 def notas():
     return render_template('notas.html', students=students)
 
-@app.route('/cursos')
-def cursos_page():
-    return render_template('cursos.html', courses=courses)
+@app.route('/materias')
+def materias_page():
+    return render_template('materias.html', courses=materias)
 
 @app.route('/adicionar_estudante', methods=['GET', 'POST'])
 def adicionar_estudante():
@@ -67,6 +63,57 @@ def adicionar_atividade(student_id):
         students[student_id]['activities'].append(activity)
         return redirect(url_for('atividades'))
     return render_template('adicionar_atividade.html', student_id=student_id)
+
+# Dicionário para armazenar a presença dos alunos
+presenca = {materia: None for materia in materias}
+
+alunos = ["João", "Maria", "Arthur", "Daniel", "Gabriel", "Juliane", "Bruno", "Vitor", "Vinicius"]
+
+# Dicionário para armazenar a presença (por padrão, todos os alunos estão ausentes)
+presenca = {aluno: False for aluno in alunos}
+
+@app.route('/chamada')
+def chamada():
+    # Passa a lista de alunos e seu status de presença para o template
+    return render_template('chamada.html', alunos=alunos, presenca=presenca)
+
+@app.route('/marcar_presenca/<nome>', methods=['POST'])
+def marcar_presenca(nome):
+    if nome in presenca:
+        presenca[nome] = True  # Marca o aluno como presente
+    return redirect(url_for('chamada'))
+
+@app.route('/marcar_falta/<nome>', methods=['POST'])
+def marcar_falta(nome):
+    if nome in presenca:
+        presenca[nome] = False  # Marca o aluno como ausente
+    return redirect(url_for('chamada'))
+
+@app.route('/adicionar_aluno', methods=['POST'])
+def adicionar_aluno():
+    novo_aluno = request.form.get('novo_aluno')
+    if novo_aluno and novo_aluno not in alunos:
+        alunos.append(novo_aluno)  # Adiciona o novo aluno
+        presenca[novo_aluno] = False  # Inicializa como ausente
+    return redirect(url_for('chamada'))
+
+def gerar_calendario(ano):
+    meses = []
+    for i in range(1, 13):  # Para cada mês do ano
+        # Gera o calendário do mês i do ano especificado
+        month_days = calendar.monthcalendar(ano, i)
+        meses.append({
+            'mes': calendar.month_name[i],
+            'dias': month_days
+        })
+    return meses
+
+@app.route('/calendario')
+def calendario():
+    # Passa o calendário de 2024 para o template
+    ano = 2024
+    calendario = gerar_calendario(ano)
+    return render_template('calendario.html', ano=ano, calendario=calendario)
 
 if __name__ == '__main__':
     app.run(debug=True)
